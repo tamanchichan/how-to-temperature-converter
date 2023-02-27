@@ -1,0 +1,204 @@
+@import url("./reset.css");
+
+:root {
+  --body-bg-color: #f2f4f6;
+  --body-bg-color-dark-mode: #353839;
+  --body-color: #000;
+  --body-color-dark-mode: #fff;
+  --header-bg-color: #5f28b1;
+  --header-color: #fff;
+  --header-nav-color: #fff;
+  --input-text-bg-color: #f2f2f2;
+  --convert-button-bg-color: #294ef8;
+  --convert-button-bg-color-dark-mode: #2446df;
+  --convert-button-bg-color-hover: #1c36ad;
+  --convert-button-bg-color-active: #4ef829;
+  --convert-button-color: #fff;
+  --output-bg-color: #2d2e35;
+  --output-bg-color-dark-mode: #0e1111;
+  --output-color: #fff;
+  --switch-appearance-btn-bg-color: #5f28b1;
+  --switch-appearance-btn-bg-color-hover: #55249f;
+  --switch-appearance-btn-color: #fff;
+}
+
+/* <class> */
+
+.container {
+  margin-inline: auto;
+  width: min(100% - 30px, 1080px);
+}
+
+.flex {
+  display: flex;
+}
+
+/* <body> */
+
+body {
+  background-color: var(--body-bg-color);
+}
+
+body.dark-mode {
+  background-color: var(--body-bg-color-dark-mode);
+  color: var(--body-color-dark-mode);
+}
+
+/* <header> */
+
+header .flex {
+  justify-content: space-between;
+}
+
+header {
+  background-color: var(--header-bg-color);
+  color: var(--header-color);
+  height: 50px;
+  line-height: 50px;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  word-spacing: 5px;
+}
+
+header nav ul {
+  font-size: 0px;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li + li {
+  margin-left: 15px;
+}
+
+header nav ul li a {
+  color: var(--header-nav-color);
+  font-size: 18px;
+  transition: all 0.25s ease-in-out;
+}
+
+header nav ul li a:hover {
+  font-size: 20px;
+  text-shadow: 0px 0px 2px #000;
+}
+
+/* <main> */
+
+main h2 {
+  margin: 25px 0px 10px 0px;
+}
+
+main form {
+  font-size: 0px;
+}
+
+main input[type=text] {
+  background-color: var(--input-text-bg-color);
+  border: 1px solid #000;
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  height: 35px;
+  line-height: 35px;
+  padding-left: 10px;
+  width: 200px;
+}
+
+main input[type=text].dark-mode {
+  box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
+}
+
+main input[type=text]:focus {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+main input[type=text].dark-mode:focus {
+  box-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+}
+
+main .convert-button {
+  background-color: var(--convert-button-bg-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  color: var(--convert-button-color);
+  height: 35px;
+  letter-spacing: 1.5px;
+  margin-left: 25px;
+  padding: 0px 10px;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+  width: 100px;
+}
+
+main .convert-button.dark-mode {
+  background-color: var(--convert-button-bg-color-dark-mode);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+main .convert-button:hover {
+  background-color: var(--convert-button-bg-color-hover);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+}
+
+main .convert-button:active {
+  background-color: var(--convert-button-bg-color-active);
+}
+
+main .convert-input {
+  margin-top: 15px;
+}
+
+main input[type=radio] {
+  appearance: auto;
+}
+
+main label {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+main .to-celsius {
+  margin-left: 25px;
+}
+
+main .output {
+  background-color: var(--output-bg-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  color: var(--output-color);
+  height: 35px;
+  line-height: 35px;
+  margin-top: 25px;
+  padding-left: 10px;
+  width: 325px;
+}
+
+main .output.dark-mode {
+  background-color: var(--output-bg-color-dark-mode);
+  box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
+}
+
+/* <footer> */
+
+footer .switch-appearance-button {
+  background-color: var(--switch-appearance-btn-bg-color);
+  border-radius: 8px;
+  bottom: 50px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  color: var(--switch-appearance-btn-color);
+  font-size: 18px;
+  padding: 10px 18px;
+  position: fixed;
+  right: 50px;
+  text-transform: uppercase;
+}
+
+footer .switch-appearance-button:hover {
+  background-color: var(--switch-appearance-btn-bg-color-hover);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+}
