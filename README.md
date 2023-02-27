@@ -1,3 +1,5 @@
+![Temperature Converter](./assets/image/temperature-converter.jpeg)
+
 # Tutorial On How To Make A Simple Temperature Converter:
 
 You will need:
