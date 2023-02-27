@@ -1,11 +1,27 @@
-# Tutorial On How To Make A Temperature Converter:
+# Tutorial On How To Make A Simple Temperature Converter:
 
 You will need:
 * HTML (to be the body of your temperature converter)
 * CSS (to style your temperature converter)
 * JavaScript (to run your code through the body (HTML))
 
-The code snippets of HTML, CSS and JavaScript is avaiable at the bottom of the page.
+The code snippets of HTML, CSS and JavaScript is avaiable at the bottom of
+the page.
+
+The temperature converter will convert a given number to Fahrenheit or to
+Celsius in whichever option is focused.
+
+In this tutorial, the "body" was made with ```input``` so that you can insert a
+given number, to be focused to Fahrenheit or to Celsius, and a button to display
+the result with JavaScript.
+
+On JavaScript, it is needed at least 3 functions:
+* Function to calculate 'n' to Fahrenheit
+* Function to calculate 'n' to Celsius
+* Function to display the result
+
+It is RECOMMENDED to create an additional function to validate if the given
+input is a number.
 
 ```html
 <!DOCTYPE html>
