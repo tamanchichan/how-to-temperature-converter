@@ -8,7 +8,6 @@ const toC = document.querySelector('#toCelsius');
 const body = document.querySelector('body');
 const output = document.querySelector('.output');
 const convert = document.querySelector('.convert-button');
-const switchAppearance = document.querySelector('.switch-appearance-button');
 
 function isNumber(num) {
   if (num.length > 0 && !isNaN(num)) {
@@ -44,12 +43,4 @@ toC.addEventListener('focus', function() {
       outputP.innerHTML = 'Please, enter a valid number';
     }
   });
-});
-
-switchAppearance.addEventListener('click', function() {
-  body.classList.toggle('dark-mode');
-  input.classList.toggle('dark-mode');
-  convert.classList.toggle('dark-mode');
-  output.classList.toggle('dark-mode');
-  this.innerText = body.classList.contains('dark-mode') ? "Light Mode" : "Dark Mode";
 });

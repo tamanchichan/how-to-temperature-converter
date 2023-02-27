@@ -1,37 +1,26 @@
 # Tutorial On How To Make A Temperature Converter:
+
+You will need:
+* HTML (to be the body of your temperature converter)
+* CSS (to style your temperature converter)
+* JavaScript (to run your code through the body (HTML))
+
+The code snippets of HTML, CSS and JavaScript is avaiable at the bottom of the page.
+
 ```html
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/style/index.css">
-    <link rel="icon" type="image/x-icon" href="./assets/image/favicon.ico">
+    <link rel='stylesheet' href='./assets/style/index.css'>
     <meta charset="UTF-8">
-    <meta name="author" content="Taman Chi Chan">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <title>Converter | Taman Chi Chan</title>
+    <title>Temperature Converter</title>
     <script src="./assets/script/index.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="container flex">
-        <h1>Assignment 5: Converter</h1>
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <header></header>
     <main>
-      <div class="container">
+      <div>
         <h2>Temperature Converter</h2>
         <form>
           <input type="text" class="input-number" autofocus>
@@ -52,11 +41,161 @@
         </div>
       </div>
     </main>
-    <footer>
-      <div class="container">
-        <button class="switch-appearance-button">Dark Mode</button>
-      </div>
-    </footer>
   </body>
 </html>
+```
+```css
+@import url("./reset.css");
+
+:root {
+  --body-bg-color: #f2f4f6;
+  --body-color: #000;
+  --input-text-bg-color: #f2f2f2;
+  --convert-button-bg-color: #294ef8;
+  --convert-button-bg-color-hover: #1c36ad;
+  --convert-button-bg-color-active: #4ef829;
+  --convert-button-color: #fff;
+  --output-bg-color: #2d2e35;
+  --output-color: #fff;
+}
+
+/* <class> */
+.flex {
+  display: flex;
+}
+
+/* <body> */
+body {
+  background-color: var(--body-bg-color);
+}
+
+/* <main> */
+main {
+  display: flex;
+  place-content: center;
+}
+
+main h2 {
+  margin: 25px 0px 10px 0px;
+}
+
+main form {
+  font-size: 0px;
+}
+
+main input[type=text] {
+  background-color: var(--input-text-bg-color);
+  border: 1px solid #000;
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  height: 35px;
+  line-height: 35px;
+  padding-left: 10px;
+  width: 200px;
+}
+
+main input[type=text]:focus {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+main .convert-button {
+  background-color: var(--convert-button-bg-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  color: var(--convert-button-color);
+  height: 35px;
+  letter-spacing: 1.5px;
+  margin-left: 25px;
+  padding: 0px 10px;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+  width: 100px;
+}
+
+main .convert-button:hover {
+  background-color: var(--convert-button-bg-color-hover);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+}
+
+main .convert-button:active {
+  background-color: var(--convert-button-bg-color-active);
+}
+
+main .convert-input {
+  margin-top: 15px;
+}
+
+main input[type=radio] {
+  appearance: auto;
+}
+
+main label {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+main .to-celsius {
+  margin-left: 25px;
+}
+
+main .output {
+  background-color: var(--output-bg-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  color: var(--output-color);
+  height: 35px;
+  line-height: 35px;
+  margin-top: 25px;
+  padding-left: 10px;
+  width: 325px;
+}
+```
+
+```javascript
+'use strict';
+
+const input = document.querySelector('.input-number');
+const result = document.querySelector('.convert-button');
+const outputP = document.querySelector('.output p');
+const toF = document.querySelector('#toFahrenheit');
+const toC = document.querySelector('#toCelsius');
+const body = document.querySelector('body');
+const output = document.querySelector('.output');
+const convert = document.querySelector('.convert-button');
+
+function isNumber(num) {
+  if (num.length > 0 && !isNaN(num)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+toF.addEventListener('focus', function() {
+  result.addEventListener('click', function() {
+    let temperature = input.value.trim();
+    
+    if (isNumber(temperature)) {
+      let result = (temperature * 1.8) + 32;
+      outputP.innerText = `${temperature}°C = ${result.toFixed(2)}°F`;
+      input.value;
+    } else {
+      outputP.innerHTML = 'Please, enter a valid number';
+    }
+  });
+});
+
+toC.addEventListener('focus', function() {
+  result.addEventListener('click', function() {
+    let temperature = input.value.trim();
+    
+    if (isNumber(temperature)) {
+      let result = (temperature - 32) / 1.8;
+      outputP.innerText = `${temperature}°F = ${result.toFixed(2)}°C`;
+      input.value;
+    } else {
+      outputP.innerHTML = 'Please, enter a valid number';
+    }
+  });
+});
 ```
